@@ -11,7 +11,7 @@ fun main() {
     val from = positions[0]
     val to = positions[1]
 
-    println("Откуда: $from")  // Вывод: Откуда: D2
-    println("Куда: $to")      // Вывод: Куда: D4
-    println("Номер хода: $moveNumber")  // Вывод: Номер хода: 0
+    println("Откуда: $from")
+    println("Куда: $to")
+    println("Номер хода: $moveNumber")
 }
