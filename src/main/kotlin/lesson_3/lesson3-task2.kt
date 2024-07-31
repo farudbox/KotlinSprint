@@ -1,14 +1,18 @@
 package org.example.lesson_3
 
+
+//    val currentLastName =
+//    val currentAge =
+
 fun main() {
     val name = "Татьяна"
     val surname = "Сергеевна"
-    val oldLastName = "Андреева"
-    val currentLastName = "Сидорова"
+    var lastName = "Андреева"
+    var age = 20
+    println("$lastName $name $surname: $age")
 
-    val oldAge = 20
-    val currentAge = 22
+    lastName = "Сидорова"
+    age = 22
+    println("$lastName $name $surname: $age")
 
-    println("$oldLastName $name $surname: $oldAge")
-    println("$currentLastName $name $surname: $currentAge")
 }
