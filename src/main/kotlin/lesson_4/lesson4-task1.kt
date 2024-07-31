@@ -5,7 +5,7 @@ const val TABLES = 13
 fun main() {
     val bookedTablesToday = 13
     val freeTablesTomorrow = 4
-    val bookedTablesTomorrow = TABLES - freeTablesTomorrow // 9
+    val bookedTablesTomorrow = TABLES - freeTablesTomorrow
 
     val availabilityToday = bookedTablesToday < TABLES
     val availabilityTomorrow = bookedTablesTomorrow < TABLES
