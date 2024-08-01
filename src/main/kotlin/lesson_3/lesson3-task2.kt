@@ -1,9 +1,5 @@
 package org.example.lesson_3
 
-
-//    val currentLastName =
-//    val currentAge =
-
 fun main() {
     val name = "Татьяна"
     val surname = "Сергеевна"
