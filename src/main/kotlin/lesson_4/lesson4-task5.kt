@@ -1,28 +1,32 @@
 package org.example.lesson_4
 
+const val MIN_CREW_COUNT = 55
+const val MAX_CREW_COUNT = 70
+const val SUPPLY_BOXES = 50
+
 fun canShipSail(
     damage: Boolean,
     crewCount: Int,
     supplyBoxes: Int,
     weather: Boolean
 ): Boolean {
-    return (!damage && crewCount in 55..70 && supplyBoxes > 50) ||
-            (damage && crewCount == 70 && supplyBoxes >= 50 && weather)
+    return (!damage && crewCount in MIN_CREW_COUNT..MAX_CREW_COUNT && supplyBoxes > SUPPLY_BOXES) ||
+            (damage && crewCount == MAX_CREW_COUNT && supplyBoxes >= SUPPLY_BOXES && weather)
 }
 
 fun main() {
     println("Наличие повреждений корпуса (1 - есть, 0 - нет): ")
-    val damageInput = readLine()!!.toInt()
+    val damageInput = readln().toInt()
     val damage = damageInput == 1
 
     println("Текущий состав экипажа: ")
-    val crewCount = readLine()!!.toInt()
+    val crewCount = readln().toInt()
 
     println("Количество ящиков с провизией на борту: ")
-    val supplyBoxes = readLine()!!.toInt()
+    val supplyBoxes = readln().toInt()
 
     println("Благоприятность метеоусловий (1 - благоприятные, 0 - неблагоприятные): ")
-    val weatherInput = readLine()!!.toInt()
+    val weatherInput = readln().toInt()
     val weather = weatherInput == 1
 
     if (canShipSail(damage, crewCount, supplyBoxes, weather)) {
