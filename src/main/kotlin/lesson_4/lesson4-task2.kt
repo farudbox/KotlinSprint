@@ -1,4 +1,4 @@
-package org.example.lesson4
+package org.example.lesson_4
 
 fun main() {
     val cargo1Weight = 20
