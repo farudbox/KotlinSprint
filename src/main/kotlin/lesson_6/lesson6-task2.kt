@@ -1,4 +1,4 @@
-package org.example.lesson_5
+package org.example.lesson_6
 
 fun main() {
     println("Введите время таймера: ")
