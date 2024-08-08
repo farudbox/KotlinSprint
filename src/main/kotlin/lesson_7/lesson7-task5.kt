@@ -17,6 +17,7 @@ fun generatePassword(length: Int): String {
     for (i in 3 until length) {
         passwordBuilder.append(allCharacters.random())
     }
+
     return passwordBuilder.toList().shuffled().joinToString("")
 }
 
