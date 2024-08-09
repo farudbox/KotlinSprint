@@ -4,7 +4,7 @@ fun main() {
     println("Пожалуйста, введите число: ")
     val userNum = readln().toInt()
 
-    for (i in 0..userNum) {
+    for (i in 0..userNum step 2) {
         println(i)
     }
 }
