@@ -1,9 +1,9 @@
 package org.example.lesson_7
 
 fun generatePassword(length: Int): String {
-    val digits = "0123456789"
-    val lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"
-    val upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    val digits = 1..9
+    val lowerCaseLetters = 'a'..'z'
+    val upperCaseLetters = 'A'..'Z'
     val allCharacters = digits + lowerCaseLetters + upperCaseLetters
 
     require(length > 6) { "Минимальная длина пароля должна быть 6 символов" }
