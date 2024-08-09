@@ -10,7 +10,7 @@ fun main() {
 
     for (ingredient in ingredients) {
         if (ingredient.equals(userIngredient, ignoreCase = true)) {
-            println("Ингредиент \"$userIngredient\" в рецепте есть.")
+            println("Ингредиент $userIngredient в рецепте есть.")
             ingredientFound = true
             break
         }
