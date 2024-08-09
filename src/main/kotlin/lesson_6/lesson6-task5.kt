@@ -1,46 +1,55 @@
 package org.example.lesson_6
 
 fun main() {
-    println("Пожалуйста, введите логин: ")
+    println("Для прохождения регистрации введите логин и пароль")
+    println("Логин: ")
     val login = readln()
-    println("Пожалуйста, введите пароль: ")
+    println("Пароль: ")
     val password = readln()
 
-    var authenticated = false
+    if (authenticate(login, password)) {
+        if (verifyAccess()) {
+            println("Доступ разрешен!")
+        } else println("Доступ запрещен!")
+    }
+}
 
-    while (!authenticated) {
-        println("Пожалуйста, введите логин: ")
+fun authenticate(correctLogin: String, correctPassword: String): Boolean {
+    println("Для авторизации введите ваш логин и пароль")
+
+    while (true) {
+        println("Введите логин: ")
         val inputLogin = readln()
-        println("Пожалуйста, введите пароль: ")
+        println("Введите пароль: ")
         val inputPassword = readln()
 
-        if (inputLogin == login && inputPassword == password) {
+        if (inputLogin == correctLogin && inputPassword == correctPassword) {
             println("Авторизация прошла успешно")
-            authenticated = true
+            return true
+        } else println("Неверные логин или пароль. Введите, пожалуйста, ваши данные заново")
+    }
+}
 
-            var attemptsLeft = 3
-            while (attemptsLeft > 0) {
-                val num1 = (1..9).random()
-                val num2 = (1..9).random()
-                val correctAnswer = num1 + num2
+fun verifyAccess(): Boolean {
+    var attemptsLeft = 3
 
-                println("Решите простой пример: $num1 + $num2 = ?")
-                val userAnswer = readln().toInt()
+    repeat(attemptsLeft) {
+        val num1 = (1..9).random()
+        val num2 = (1..9).random()
+        val correctAnswer = num1 + num2
 
-                if (userAnswer == correctAnswer) {
-                    println("Добро пожаловать!")
-                    return
-                } else {
-                    attemptsLeft--
-                    if (attemptsLeft > 0) {
-                        println("Неверно. Осталось попыток: $attemptsLeft")
-                    } else {
-                        println("Доступ запрещен")
-                    }
-                }
-            }
+        println("Для авторизации вам надо решить простой пример: $num1 + $num2 = ?")
+        val userAnswer = readln().toInt()
+
+        if (userAnswer == correctAnswer) {
+            return true
         } else {
-            println("Неверные логин или пароль. Введите, пожалуйста, ваши данные заново.")
+            attemptsLeft--
+            if (attemptsLeft > 0) {
+                println("Неверно. Осталось попыток: $attemptsLeft")
+            }
         }
     }
+
+    return false
 }
