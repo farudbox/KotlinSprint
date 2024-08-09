@@ -4,8 +4,6 @@ fun main() {
     val num1 = (0..42).random()
     val num2 = (0..42).random()
 
-    println("$num1, $num2")
-
     println("Пожалуйста, введите первое число от 0 до 42: ")
     val userNum1 = readln().toInt()
     println("Пожалуйста, введите второе число от 0 до 42: ")
