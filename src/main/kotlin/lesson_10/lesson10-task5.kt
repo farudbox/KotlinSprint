@@ -12,10 +12,8 @@ fun main() {
 
     val token = authorize(userLogin, userPassword)
 
-    val retrievedCart = getCart(token)
-
-    if (retrievedCart != null) {
-        println("Содержимое корзины: $retrievedCart")
+    if (token != null) {
+        println("Содержимое корзины: ${getCart()}")
     } else {
         println("Неудачная авторизация. Доступ к корзине невозможен.")
     }
@@ -30,21 +28,10 @@ fun authorize(login: String, password: String): String? {
 }
 
 fun generateToken(): String {
-    val tokenLength = 32
-    val numbers = '0'..'9'
-    val lowerCaseLetters = 'a'..'z'
-    val upperCaseLetters = 'A'..'Z'
-    return List(tokenLength) {
-        numbers.random()
-        lowerCaseLetters.random()
-        upperCaseLetters.random()
-    }.joinToString("")
+    val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    return (1..32).map { allowedChars.random() }.joinToString("")
 }
 
-fun getCart(token: String?): List<String>? {
-    return if (token != null) {
-        cart
-    } else {
-        null
-    }
+fun getCart(): String {
+    return cart.joinToString()
 }
