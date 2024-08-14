@@ -13,7 +13,7 @@ fun main() {
     val token = authorize(userLogin, userPassword)
 
     if (token != null) {
-        println("Содержимое корзины: ${getCart()}")
+        println("Содержимое корзины: ${getCart(token)}")
     } else {
         println("Неудачная авторизация. Доступ к корзине невозможен.")
     }
@@ -32,6 +32,6 @@ fun generateToken(): String {
     return (1..32).map { allowedChars.random() }.joinToString("")
 }
 
-fun getCart(): String {
-    return cart.joinToString()
+fun getCart(token: String): List<String> {
+    return cart
 }
