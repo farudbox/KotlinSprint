@@ -6,10 +6,10 @@ fun main() {
 
     while (agree) {
         println("Вы сделали бросок!")
-        val userThrow = throwTheDice()
+        val userThrow = throwTheDice2()
         println("Вам выпало $userThrow")
         println("Ход противника!")
-        val compThrow = throwTheDice()
+        val compThrow = throwTheDice2()
         println("Противнику выпало $compThrow")
 
         if (userThrow > compThrow) { //
@@ -22,4 +22,4 @@ fun main() {
     }
 }
 
-fun throwTheDice(): Int = (1..6).random()
+fun throwTheDice2(): Int = (1..6).random()
