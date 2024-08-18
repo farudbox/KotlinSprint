@@ -10,8 +10,6 @@ class WeatherData (dayTemperatureK: Int, nightTemperatureK: Int, precipitation: 
         dayTemperature = dayTemperatureK - 273
         nightTemperature = nightTemperatureK - 273
         this.precipitation = precipitation
-
-        displayWeatherInfo()
     }
 
     fun displayWeatherInfo() {
@@ -27,5 +25,7 @@ fun main() {
         nightTemperatureK = 282,
         precipitation = false,
     )
+
+    weather1.displayWeatherInfo()
 }
 
