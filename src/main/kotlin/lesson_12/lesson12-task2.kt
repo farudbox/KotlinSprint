@@ -19,5 +19,5 @@ fun main() {
         precipitation = false,
     )
 
-    println(weather1.displayWeatherInfo())
+    weather1.displayWeatherInfo()
 }
