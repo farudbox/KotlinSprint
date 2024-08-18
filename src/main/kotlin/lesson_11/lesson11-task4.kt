@@ -1,9 +1,13 @@
 package org.example.lesson_11
 
+
+
 data class RecipeCategory (
     val id: Int,
     val name: String,
+    val description: String,
     val imageUrl: String,
+    val recipes: List<Recipe>
 )
 
 data class Recipe (
