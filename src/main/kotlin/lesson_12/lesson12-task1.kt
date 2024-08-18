@@ -25,7 +25,7 @@ fun main() {
         precipitation = true,
     )
 
-    println(weather1.displayWeatherInfo())
+    weather1.displayWeatherInfo()
     println()
-    println(weather2.displayWeatherInfo())
+    weather2.displayWeatherInfo()
 }
