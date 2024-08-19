@@ -1,21 +1,21 @@
 package org.example.lesson_13
 
-class Contact1(
+class Contact1 (
     val name: String,
     val phone: Long,
     val companyName: String? = null,
 ) {
-    fun contactInfo() {
-        println("Имя: $name, Номер: $phone, Компания: ${companyName ?: "Не указано"}")
+    fun printContactInfo() {
+        println("Имя: $name, Номер телефона: $phone, Компания: ${companyName ?: "Не задано"}")
     }
 }
 
 fun main() {
-    val contact = Contact1(
+    val contact1 = Contact1(
         name = "Ростислав",
         phone = 89123456789,
         companyName = "Reddit"
     )
 
-    contact.contactInfo()
+    contact1.printContactInfo()
 }
