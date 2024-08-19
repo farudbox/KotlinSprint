@@ -1,6 +1,6 @@
 package org.example.lesson_12
 
-class WeatherData (dayTemperatureK: Int, nightTemperatureK: Int, precipitation: Boolean, ) {
+class WeatherData1 (dayTemperatureK: Int, nightTemperatureK: Int, precipitation: Boolean, ) {
 
     val dayTemperature: Int
     val nightTemperature: Int
@@ -22,7 +22,7 @@ class WeatherData (dayTemperatureK: Int, nightTemperatureK: Int, precipitation: 
 }
 
 fun main() {
-    val weather1 = WeatherData(
+    val weather1 = WeatherData1(
         dayTemperatureK = 292,
         nightTemperatureK = 282,
         precipitation = false,

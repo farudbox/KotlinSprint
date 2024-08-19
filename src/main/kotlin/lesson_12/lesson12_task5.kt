@@ -1,6 +1,6 @@
 package org.example.lesson_12
 
-class WeatherData1(dayTemperatureK: Int, nightTemperatureK: Int, hasPrecipitation: Boolean) {
+class WeatherData2(dayTemperatureK: Int, nightTemperatureK: Int, hasPrecipitation: Boolean) {
     val dayTemperature: Int
     val nightTemperature: Int
     val hasPrecipitation: Boolean
@@ -13,7 +13,7 @@ class WeatherData1(dayTemperatureK: Int, nightTemperatureK: Int, hasPrecipitatio
 }
 
 fun main() {
-    val weatherList = mutableListOf<WeatherData1>()
+    val weatherList = mutableListOf<WeatherData2>()
 
     val dayTemperaturesK = listOf(273, 278, 283, 288, 293, 298, 303, 308, 313)
     val nightTemperaturesK = listOf(253, 258, 263, 268, 273, 278, 283, 288, 293)
@@ -24,7 +24,7 @@ fun main() {
         val nightTemperatureK = nightTemperaturesK.random()
         val hasPrecipitation = precipitationOptions.random()
 
-        val weather = WeatherData1(dayTemperatureK, nightTemperatureK, hasPrecipitation)
+        val weather: WeatherData2 = WeatherData2(dayTemperatureK, nightTemperatureK, hasPrecipitation)
         weatherList.add(weather)
     }
 
