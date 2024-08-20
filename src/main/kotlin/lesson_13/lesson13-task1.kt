@@ -1,4 +1,4 @@
-package org.example.package_13
+package org.example.lesson_13
 
 class Contact (
     val name: String,
