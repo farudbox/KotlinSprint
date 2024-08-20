@@ -1,4 +1,5 @@
 package org.example.lesson_15
+
 interface Floating {
     fun swim()
 }
