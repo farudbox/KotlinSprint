@@ -1,7 +1,5 @@
 package org.example.lesson16
 
-
-
 class Circle(private val r: Int) {
     companion object {
         private const val Pi = 3.14
