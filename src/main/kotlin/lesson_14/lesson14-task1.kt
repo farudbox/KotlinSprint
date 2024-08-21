@@ -14,8 +14,9 @@ open class Liner(
 class CargoShip (
     name: String,
     speed: Int = 20,
+    capacity: Int = 0,
     cargoCapacity: Int = 2000,
-) : Liner(name, speed, cargoCapacity) {
+) : Liner(name, speed, capacity, cargoCapacity) {
 
     override fun description() {
         println("Это грузовой корабль $name со скоростью $speed узлов и грузоподъемностью $cargoCapacity тонн.")
@@ -26,14 +27,17 @@ class Icebreaker (
     name: String,
     speed: Int = 10,
     capacity: Int = 1000,
-) : Liner(name, speed, capacity) {
+    cargoCapacity: Int = 1000,
+) : Liner(name, speed, capacity, cargoCapacity) {
 
     fun breakIce() {
         println("Ледокол колет лед на своем пути.")
     }
 
     override fun description() {
-        println("Это ледокол $name со скоростью $speed узлов и вместимостью $capacity пассажиров.")
+        println("Это ледокол $name со скоростью $speed узлов," +
+                " вместимостью $capacity пассажиров" +
+                " и грузоподъемностью $cargoCapacity тонн.")
     }
 }
 
