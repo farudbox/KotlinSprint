@@ -1,6 +1,6 @@
 package org.example.lesson_14
 
-open class Liner(
+open class Liner1(
     val name: String,
     open val speed: Int = 30,
     open val capacity: Int = 3000,
@@ -15,12 +15,12 @@ open class Liner(
     }
 }
 
-class CargoShip(
+class CargoShip1(
     name: String,
     speed: Int = 20,
     capacity: Int = 0,
     cargoCapacity: Int = 2000,
-) : Liner(name, speed, capacity, cargoCapacity) {
+) : Liner1(name, speed, capacity, cargoCapacity) {
 
     override fun description() {
         println("Это грузовой корабль $name со скоростью $speed узлов и грузоподъемностью $cargoCapacity тонн.")
@@ -31,12 +31,12 @@ class CargoShip(
     }
 }
 
-class Icebreaker(
+class Icebreaker1(
     name: String,
     speed: Int = 10,
     capacity: Int = 1000,
     cargoCapacity: Int = 1000,
-) : Liner(name, speed, capacity, cargoCapacity) {
+) : Liner1(name, speed, capacity, cargoCapacity) {
 
     fun breakIce() {
         println("Ледокол колет лед на своем пути.")
@@ -56,18 +56,18 @@ class Icebreaker(
 }
 
 fun main() {
-val liner = Liner("Titanic")
-val cargoShip = CargoShip("Alice")
-val icebreaker = Icebreaker("North")
+val liner1 = Liner1("Titanic")
+val cargoShip = CargoShip1("Alice")
+val icebreaker1 = Icebreaker1("North")
 
-    liner.description()
-    liner.loadingMethod()
+    liner1.description()
+    liner1.loadingMethod()
 
     cargoShip.description()
     cargoShip.loadingMethod()
 
-    icebreaker.description()
-    icebreaker.loadingMethod()
+    icebreaker1.description()
+    icebreaker1.loadingMethod()
 
-    icebreaker.breakIce()
+    icebreaker1.breakIce()
 }
