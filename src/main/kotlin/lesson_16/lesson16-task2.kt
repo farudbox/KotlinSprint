@@ -1,4 +1,4 @@
-package org.example.lesson16
+package org.example.lesson_16
 
 class Circle(private val r: Int) {
     companion object {
