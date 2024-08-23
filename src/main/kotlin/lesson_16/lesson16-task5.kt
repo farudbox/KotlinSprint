@@ -1,19 +1,30 @@
 package org.example.lesson_16
 
-class Player(val name: String, initialHealth: Int, val attackPower: Int) {
+class Player(val name: String, initialHealth: Int, attackPower: Int) {
+
     var health: Int = initialHealth
         private set
     var attackStrength: Int = attackPower
         private set
+
     private var isAlive: Boolean = true
 
+    fun startBattle() {
+        println("${name} вступает в бой с ${health} здоровьем и силой удара ${attackStrength}.")
+    }
+
     fun takeDamage(damage: Int) {
-        if (!isAlive) return
+        if (!isAlive) {
+            println("$name уже мертв и не может получать урон.")
+            return
+        }
 
         health -= damage
         if (health <= 0) {
             health = 0
             die()
+        } else {
+            println("${name} получил урон. Осталось ${health} здоровья.")
         }
     }
 
@@ -22,7 +33,9 @@ class Player(val name: String, initialHealth: Int, val attackPower: Int) {
             println("$name не может быть излечен, так как он мертв.")
             return
         }
+
         health += amount
+        println("${name} исцелился. Осталось ${health} здоровья.")
     }
 
     private fun die() {
@@ -36,22 +49,10 @@ class Player(val name: String, initialHealth: Int, val attackPower: Int) {
 fun main() {
     val player = Player(name = "Артас", initialHealth = 100, attackPower = 20)
 
-    println("${player.name} вступает в бой с ${player.health} здоровьем и силой удара ${player.attackStrength}.")
-
-    player.takeDamage(30)
-    println("${player.name} получил урон. Осталось ${player.health} здоровья.")
-
-    player.heal(10)
-    println("${player.name} исцелился. Осталось ${player.health} здоровья.")
-
-    player.takeDamage(50)
-    println("${player.name} получил урон. Осталось ${player.health} здоровья.")
-
-    player.heal(20)
-    println("${player.name} исцелился. Осталось ${player.health} здоровья.")
-
-    player.takeDamage(50)
-    println("${player.name} получил урон. Осталось ${player.health} здоровья.")
-
-    player.heal(50)
+    player.startBattle()
+    player.takeDamage(damage = 30)
+    player.heal(amount = 10)
+    player.takeDamage(damage = 50)
+    player.takeDamage(damage = 20)
+    player.heal(amount = 50)
 }
