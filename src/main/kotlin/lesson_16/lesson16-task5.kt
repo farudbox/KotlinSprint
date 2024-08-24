@@ -1,16 +1,11 @@
 package org.example.lesson_16
 
-class Player(val name: String, initialHealth: Int, attackPower: Int) {
+class Player(val name: String, private var health: Int, private var attackPower: Int) {
 
-    var health: Int = initialHealth
-        private set
-    var attackStrength: Int = attackPower
-        private set
-
-    private var isAlive: Boolean = true
+        private var isAlive: Boolean = true
 
     fun startBattle() {
-        println("${name} вступает в бой с ${health} здоровьем и силой удара ${attackStrength}.")
+        println("$name вступает в бой с $health здоровьем и силой удара $attackPower.")
     }
 
     fun takeDamage(damage: Int) {
@@ -24,7 +19,7 @@ class Player(val name: String, initialHealth: Int, attackPower: Int) {
             health = 0
             die()
         } else {
-            println("${name} получил урон. Осталось ${health} здоровья.")
+            println("$name получил урон. Осталось $health здоровья.")
         }
     }
 
@@ -35,19 +30,19 @@ class Player(val name: String, initialHealth: Int, attackPower: Int) {
         }
 
         health += amount
-        println("${name} исцелился. Осталось ${health} здоровья.")
+        println("$name исцелился. Осталось $health здоровья.")
     }
 
     private fun die() {
         println("$name умер.")
         health = 0
-        attackStrength = 0
+        attackPower = 0
         isAlive = false
     }
 }
 
 fun main() {
-    val player = Player(name = "Артас", initialHealth = 100, attackPower = 20)
+    val player = Player(name = "Артас", health = 100, attackPower = 20)
 
     player.startBattle()
     player.takeDamage(damage = 30)
@@ -55,4 +50,8 @@ fun main() {
     player.takeDamage(damage = 50)
     player.takeDamage(damage = 20)
     player.heal(amount = 50)
+    player.takeDamage(damage = 50)
+    player.takeDamage(damage = 50)
+    player.heal(amount = 10)
+    player.takeDamage(damage = 50)
 }
