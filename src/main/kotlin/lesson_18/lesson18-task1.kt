@@ -1,19 +1,23 @@
 package org.example.lesson_18
 
-class OrderItem {
-
-    fun printOrder(item: String) {
-        println("Заказан товар: $item")
+sealed class OrderItem(val orderNumber: Int) {
+    class SingleItem(orderNumber: Int, private val item: String) : OrderItem(orderNumber) {
+        fun printOrder() {
+            println("Заказан товар: $item")
+        }
     }
 
-    fun printOrder(items: List<String>) {
-        println("Заказан товар: ${items.joinToString(", ")}}")
+    class MultipleItems(orderNumber: Int, private val items: List<String>) : OrderItem(orderNumber) {
+        fun printOrder() {
+            println("Заказаны следующие товары: ${items.joinToString(", ")}")
+        }
     }
 }
 
 fun main() {
-    val order = OrderItem()
+    val singleOrder = OrderItem.SingleItem(1, "Laptop")
+    val multipleOrder = OrderItem.MultipleItems(2, listOf("Laptop", "Mouse", "Keyboard"))
 
-    order.printOrder("Laptop")
-    order.printOrder(listOf("Laptop", "Mouse", "Keyboard"))
+    singleOrder.printOrder()
+    multipleOrder.printOrder()
 }
