@@ -5,26 +5,16 @@ abstract class Box {
 }
 
 class RectangularBox(
-    private val length: Int,
-    private val width: Int,
-    private val height: Int
+    private val length: Int, private val width: Int, private val height: Int
 ) : Box() {
-    companion object {
-        const val SURFACE_AREA_MULTIPLIER = 2
-    }
-
     override fun surfaceArea(): Int {
-        return SURFACE_AREA_MULTIPLIER * (length * width + width * height + height * length)
+        return 2 * (length * width + width * height + height * length)
     }
 }
 
 class CubeBox(private val edgeLength: Int) : Box() {
-    companion object {
-        const val NUM_SIDES_CUBE = 6
-    }
-
     override fun surfaceArea(): Int {
-        return NUM_SIDES_CUBE * edgeLength * edgeLength
+        return 6 * edgeLength * edgeLength
     }
 }
 
