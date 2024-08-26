@@ -1,35 +1,19 @@
 package org.example.lesson_18
 
-sealed class OrderItem {
-    abstract fun printOrder()
-}
+class OrderItem {
 
-data class SingleItem(val item: String) : OrderItem() {
-    override fun printOrder() {
+    fun printOrder(item: String) {
         println("Заказан товар: $item")
     }
-}
 
-data class MultipleItem(val items: List<String>) : OrderItem() {
-    override fun printOrder() {
-        val itemsList = items.joinToString(", ")
-        println("Заказан товар: $itemsList")
+    fun printOrder(items: List<String>) {
+        println("Заказан товар: ${items.joinToString(", ")}}")
     }
 }
 
-data class Order(val orderNumber: Int, val orderItem: OrderItem)
-
 fun main() {
-    val singleOrder = Order(
-        orderNumber = 1,
-        orderItem = SingleItem("Laptop")
-    )
+    val order = OrderItem()
 
-    val multipleOrder = Order(
-        orderNumber = 2,
-        orderItem = MultipleItem(listOf("Laptop", "Mouse", "Keyboard"))
-    )
-
-    singleOrder.orderItem.printOrder()
-    multipleOrder.orderItem.printOrder()
+    order.printOrder("Laptop")
+    order.printOrder(listOf("Laptop", "Mouse", "Keyboard"))
 }
