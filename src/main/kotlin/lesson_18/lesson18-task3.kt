@@ -3,30 +3,26 @@ package org.example.lesson_18
 abstract class Animal(val name: String) {
     abstract fun eat()
 
-    fun performAction(action: String) {
-        println("$name -> $action")
-    }
-
-    fun sleep() {
-        performAction("спит")
+    fun sleep(name: String) {
+        println("$name -> спит")
     }
 }
 
 class Fox(name: String) : Animal(name) {
     override fun eat() {
-        performAction("лиса ест ягоды")
+        println("$name -> лиса ест ягоды")
     }
 }
 
 class Dog(name: String) : Animal(name) {
     override fun eat() {
-        performAction("собака ест кости")
+        println("$name -> собака ест кости")
     }
 }
 
 class Cat(name: String) : Animal(name) {
     override fun eat() {
-        performAction("кошка ест рыбу")
+        println("$name -> кошка ест рыбу")
     }
 }
 
