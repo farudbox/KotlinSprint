@@ -1,7 +1,5 @@
 package org.example.lesson_20
 
-import kotlin.random.Random
-
 class Robot {
     private val phrases = listOf(
         "Привет, мир!",
@@ -11,16 +9,14 @@ class Robot {
         "Что нового в мире технологий?",
     )
 
-    private var modifier: ((String) -> String)? = null
+    private var modifier: (String) -> String = { it }
 
     fun setModifier(modifier: (String) -> String) {
         this.modifier = modifier
     }
 
     fun say() {
-        val phrase = phrases[Random.nextInt(phrases.size)]
-        val modifiedPhrase = modifier?.invoke(phrase) ?: phrase
-        println(modifiedPhrase)
+        println(modifier(phrases.random()))
     }
 }
 
