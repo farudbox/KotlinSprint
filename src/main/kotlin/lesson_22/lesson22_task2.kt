@@ -5,7 +5,6 @@ class RegularBook2(val title: String, val author: String)
 data class DataBook2(val title: String, val author: String)
 
 fun main() {
-    fun main() {
         val regularBook2 = RegularBook2("regular_book", "author")
 
         val dataBook2 = DataBook2("data_book", "author")
@@ -23,5 +22,3 @@ fun main() {
        объекта, содержащее значения всех его свойств в формате "DataBook2(title=..., author=...)".
        Поэтому вывод будет выглядеть как "DataBook2(title=Kotlin Programming, author=John Doe)".
     */
-
-}
