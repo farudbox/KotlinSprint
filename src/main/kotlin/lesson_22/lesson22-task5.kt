@@ -17,7 +17,10 @@ fun main() {
         4.367,
     )
 
-    val (name, description, dataAndTime, distance) = alphaCentauriGuide
+    val name = alphaCentauriGuide.component1()
+    val description = alphaCentauriGuide.component2()
+    val dataAndTime = alphaCentauriGuide.component3()
+    val distance = alphaCentauriGuide.component4()
 
     println("Название планеты: $name")
     println("Описание события: $description")
