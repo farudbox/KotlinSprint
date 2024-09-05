@@ -1,24 +1,25 @@
 package org.example.lesson_22
 
-data class MainScreenState(val data: String = "", val isLoading: Boolean = false)
 
 class MainScreenViewModel {
+
+    data class MainScreenState(val data: String = "", val isLoading: Boolean = false)
 
     var mainScreenState = MainScreenState()
         private set
 
-    fun loadData(onStateChanged: (MainScreenState) -> Unit) {
-        mainScreenState = MainScreenState(isLoading = true)
-        onStateChanged(mainScreenState)
+    fun loadData() {
+        mainScreenState = mainScreenState.copy(isLoading = true)
+        println(mainScreenState.isLoading)
 
         Thread {
             Thread.sleep(2000)
 
-            mainScreenState = MainScreenState().copy(
+            mainScreenState = mainScreenState.copy(
                 data = "Loaded data from server",
                 isLoading = false
             )
-            onStateChanged(mainScreenState)
+            println(mainScreenState.data)
         }.start()
     }
 }
@@ -26,12 +27,16 @@ class MainScreenViewModel {
 fun main() {
     val viewModel = MainScreenViewModel()
 
-    val handleStateChange: (MainScreenState) -> Unit = { state ->
+    val handleStateChange: () -> Unit = {
+        val state = viewModel.mainScreenState
         if (state.isLoading) {
             println("Loading data...")
-        } else println("Data loaded: ${state.data}")
+        } else {
+            println("Data loaded: ${state.data}")
+        }
     }
 
     println("Initial state: ${viewModel.mainScreenState}")
-    viewModel.loadData(handleStateChange)
+    viewModel.loadData()
+    handleStateChange()
 }
